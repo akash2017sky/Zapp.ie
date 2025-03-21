@@ -30,11 +30,15 @@ msalInstance.initialize().then(() => {
   const root = ReactDOM.createRoot(container!);
   root.render(
     <MsalProvider instance={msalInstance}>
+      <CacheProvider>
       <Router>
         <ThemeProvider theme={theme}>
+          <CacheProvider>
           <App pca={msalInstance} />
+          </CacheProvider>
         </ThemeProvider>
       </Router>
+    </CacheProvider>,
     </MsalProvider>
 
   );
